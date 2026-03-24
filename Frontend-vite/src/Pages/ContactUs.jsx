@@ -57,7 +57,7 @@ const ContactUs = () => {
       </div>
       ) : (
         
-<div className="middlecontent  bg-[#000B1F] flex justify-center flex-col items-center relative sm:p-0 p-5">
+<div className="middlecontent  bg-[#000B1F] flex justify-center flex-col flex-1 items-center relative sm:p-0 p-5">
         <div className="flex justify-center flex-col items-center text-center h-60 w-96">
           <p className="gettouch text-white text-xl sm:text-3xl">Get In Touch</p>
           <p className="para mt-5">We’d love to hear from you! For any queries, suggestions, or feedback, feel free to reach out to us. Our team is here to assist you and ensure that you have the best experience on CinemaSpace.</p>

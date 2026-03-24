@@ -61,7 +61,7 @@ const About = () => {
           </div>
         </div>
       ) : (
-        <div className="middlecontent bg-[#000B1F] flex justify-center items-center relative sm:p-0 p-5">
+        <div className="middlecontent bg-[#000B1F] flex justify-center flex-1 items-center relative sm:p-0 p-5">
           <div className="flex justify-center flex-col items-center text-center h-72 w-96">
             <p className="name text-white text-xl sm:text-3xl">CinemaBlizz</p>
             <p className="para mt-5">

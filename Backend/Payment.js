@@ -26,8 +26,8 @@ router.post('/create-checkout-session', async (req, res) => {
           quantity: 1,
         },
       ],
-      success_url: 'https://cinemablizzz.onrender.com//success',
-      cancel_url: 'https://cinemablizzz.onrender.com//cancel',
+      success_url: 'https://cinemablizzz.onrender.com/success',
+      cancel_url: 'https://cinemablizzz.onrender.com/cancel',
     });
 
     res.json({ url: session.url });
