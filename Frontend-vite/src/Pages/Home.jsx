@@ -15,21 +15,21 @@ const Home = () => {
     if (!isAuthenticated) {
       e.preventDefault();
       setMessage("Please log in to access the content.");
-      setTimeout(() => setMessage(""), 5000);
+      setTimeout(() => setMessage(""), 3000);
     } else {
       navigate(path);
     }
   };
 
   return (
-    <div className="flex bg-[#000B1F] text-white flex-col xl:flex-row h-[80vh] xl:h-auto items-center justify-center xl:justify-start">
+    <div className="flex bg-[#000B1F] text-white flex-col xl:flex-row flex-1 items-center justify-center xl:justify-start py-6">
 
       {/* LEFT CONTENT */}
       <div className="middlecontent relative flex flex-col justify-center items-center xl:items-start w-full xl:w-2/5 h-full px-4">
 
         {/* Title */}
         <div className="text-center xl:text-left xl:ml-20">
-          <p className="name text-4xl xl:text-6xl font-bold">
+          <p className="text-4xl xl:text-6xl font-bold">
             CinemaBlizz
           </p>
 
@@ -40,7 +40,6 @@ const Home = () => {
 
         {/* Buttons */}
         <div className="mt-6 w-full max-w-md">
-
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 xl:ml-20">
 
             <Link
@@ -80,7 +79,7 @@ const Home = () => {
 
         {/* Message */}
         {message && (
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 xl:left-auto xl:right-16 border rounded-lg p-2 w-72 text-center bg-red-500 text-black font-bold shadow-lg">
+          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 xl:left-auto xl:right-16 border rounded-lg p-2 w-72 text-center bg-red-500 text-black font-bold shadow-lg">
             {message}
           </div>
         )}

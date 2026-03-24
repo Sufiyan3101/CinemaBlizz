@@ -8,21 +8,9 @@ const MovieCard = ({ movie }) => {
 
   const watchlist = isInWatchlist(movie.title);
 
-  // ✅ Detect touch devices (mobile/tablet)
-  const isTouchDevice =
-    typeof window !== "undefined" &&
-    ("ontouchstart" in window || navigator.maxTouchPoints > 0);
-
-  // ✅ Handle full card click (mobile only)
-  const handleCardClick = () => {
-    if (isTouchDevice) {
-      window.open(movie.videoUrl, "_blank");
-    }
-  };
-
   // ✅ Watchlist click
   const handleWatchlistClick = (e) => {
-    e.stopPropagation(); // prevent triggering card click
+    e.stopPropagation();
     if (!watchlist) {
       addToWatchlist(movie);
     }
@@ -31,10 +19,10 @@ const MovieCard = ({ movie }) => {
   return (
     <div
       className="movie-card relative w-96 h-96 mx-auto text-center rounded-2xl bg-slate-400 shadow-md cursor-pointer"
-      onClick={handleCardClick}
+      onClick={() => window.open(movie.videoUrl, "_blank")}
     >
       <div className="card relative group h-full">
-        {/* Movie Thumbnail */}
+        {/* Thumbnail */}
         <img
           src={movie.thumbnail}
           alt={movie.title}
@@ -58,12 +46,18 @@ const MovieCard = ({ movie }) => {
 
         {/* Overlay */}
         <div
-          className={`overlay absolute inset-0 flex items-end bg-linear-to-t from-black via-transparent to-transparent rounded-2xl p-6 transition-opacity duration-500 ${
-            isTouchDevice ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-          }`}
+          className="
+            absolute inset-0 flex items-end
+            bg-linear-to-t from-black via-transparent to-transparent
+            rounded-2xl p-6
+            
+            opacity-100 sm:opacity-0 sm:group-hover:opacity-100
+            transition-opacity duration-500
+          "
         >
-          <div className="text-content text-white w-full text-center">
+          <div className="text-white w-full text-center">
             <h3 className="text-lg font-bold mb-2">{movie.title}</h3>
+
             <p className="text-sm font-semibold mb-4">
               {movie.description}
             </p>
@@ -71,7 +65,7 @@ const MovieCard = ({ movie }) => {
             <button
               className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
               onClick={(e) => {
-                e.stopPropagation(); 
+                e.stopPropagation();
                 window.open(movie.videoUrl, "_blank");
               }}
             >
