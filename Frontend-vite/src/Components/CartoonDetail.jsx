@@ -12,7 +12,7 @@ const CartoonDetail = () => {
     const fetchSeries = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8000/cartoons/${title}/seasons`
+          `https://cinemablizzbackend.onrender.com/cartoons/${title}/seasons`
         );
         const data = await response.json(); // Add await here
         console.log("Fetched Data", data);

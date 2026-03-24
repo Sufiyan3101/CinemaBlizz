@@ -13,7 +13,7 @@ const WebSeriesDetail = () => {
   useEffect(() => {
     const fetchSeries = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/webseries/${title}/seasons`);
+        const response = await fetch(`https://cinemablizzbackend.onrender.com/webseries/${title}/seasons`);
         const data = await response.json();
         console.log("Fetched series data:", data);
   

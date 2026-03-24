@@ -15,7 +15,7 @@ const BollywoodAddMovie = () => {
     const newMovie = { title, thumbnail, videoUrl, description };
 
     try {
-      const response = await fetch("http://localhost:8000/bollywood/movies", {
+      const response = await fetch("https://cinemablizzbackend.onrender.com/bollywood/movies", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newMovie),

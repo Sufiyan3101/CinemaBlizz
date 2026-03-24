@@ -13,7 +13,7 @@ const BollywoodDeleteMovie = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8000/bollywood/movies/${title}`,
+        `https://cinemablizzbackend.onrender.com/bollywood/movies/${title}`,
         {
           method: "DELETE",
         }

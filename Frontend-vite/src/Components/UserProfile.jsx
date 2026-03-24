@@ -3,6 +3,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate, Link } from "react-router-dom";
 import "../Css/UserProfile.css";
 import { loadStripe } from "@stripe/stripe-js";
+import dotenv from 'dotenv'
+dotenv.config();
 
 const UserProfile = () => {
   const { user } = useAuth0();
@@ -20,11 +22,11 @@ const UserProfile = () => {
   }, []);
 
 // ✅ Outside the component — loads once, not on every render
-const stripePromise = loadStripe("pk_test_51RAYLLQTeKRMJ7gDkyh3rs2wwlUuEKQyAgkSizc2QLMa6irDTPfVsjixyVDQFPzX37WD78owQzlQKpo0D6VoiKxh00nZc6SHWh");
+const stripePromise = loadStripe(process.env.STRIPE_SECRET_KEY_FRONTEND);
 
 const handleClick = async () => {
   try {
-    const res = await fetch("http://localhost:8000/api/create-checkout-session", {
+    const res = await fetch("https://cinemablizzbackend.onrender.com/api/create-checkout-session", {
       method: "POST",
     });
 

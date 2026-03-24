@@ -90,7 +90,7 @@ const WatcchList = () => {
                   </div>
 
                   {/* Overlay */}
-                  <div className="overlay absolute inset-0 flex items-end bg-gradient-to-t from-black via-transparent to-transparent rounded-2xl p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="overlay absolute inset-0 flex items-end bg-linear-to-t from-black via-transparent to-transparent rounded-2xl p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div className="text-content text-white w-full text-center">
                       <h3 className="text-lg font-bold mb-2 text-center">
                         {movie.title}

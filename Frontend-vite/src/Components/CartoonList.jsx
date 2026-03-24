@@ -7,7 +7,7 @@ const CartoonList = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:8000/cartoons")
+    fetch("https://cinemablizzbackend.onrender.com/cartoons")
       .then((response) => response.json())
       .then((data) => setCartoonsList(data))
       .catch((err) => console.log(err));
@@ -43,7 +43,7 @@ const CartoonList = () => {
                   className="w-full h-80 object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110"
                 />
 
-                <div className="overlay absolute inset-0 flex items-end bg-gradient-to-t from-black via-transparent to-transparent rounded-2xl p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="overlay absolute inset-0 flex items-end bg-linear-to-t from-black via-transparent to-transparent rounded-2xl p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="text-content text-white w-full text-center">
                     <h3 className="text-lg font-bold mb-2">{cartoon.title || "No Title"}</h3>
                     <p className="text-sm font-semibold mb-4">
