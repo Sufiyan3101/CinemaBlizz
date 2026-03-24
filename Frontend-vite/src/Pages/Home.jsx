@@ -29,7 +29,7 @@ const Home = () => {
 
         {/* Title */}
         <div className="text-center xl:text-left xl:ml-20">
-          <p className="text-4xl xl:text-6xl font-bold">
+          <p className="name text-4xl xl:text-6xl font-bold">
             CinemaBlizz
           </p>
 
