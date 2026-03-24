@@ -46,7 +46,7 @@ const handleClick = async () => {
   return (
     <div className="profile-container">
       <div className="profile-header">
-        {/* <img src={user.picture} alt={user.name} className="profile-img" /> */}
+        <img src={user.picture} alt={user.name} className="profile-img" />
         <h2 className="profile-title">Profile</h2>
       </div>
 
