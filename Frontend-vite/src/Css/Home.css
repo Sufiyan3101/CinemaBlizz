@@ -1,0 +1,12 @@
+.name{
+    text-shadow: yellow 0 0 20px;
+    animation: animate 2s linear infinite;
+}
+@keyframes animate{
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}

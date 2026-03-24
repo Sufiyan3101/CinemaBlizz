@@ -1,0 +1,14 @@
+/* ✅ CORRECT */
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Pacifico&family=Roboto&family=Zilla+Slab&display=swap');
+
+/* Name */
+.name,.gettouch {
+    font-family: "Pacifico", cursive;
+}
+
+/* Button + text */
+.btn,.para {
+    font-family: "Roboto", serif;
+    font-weight: 500;
+    color: white;
+}

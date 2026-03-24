@@ -1,0 +1,71 @@
+/* Remove default margin */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Banner Styling (Desktop Default) */
+.banner {
+    width: 95%;
+    height: 70vh;
+    text-align: center;
+    overflow: visible;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+/* Slider */
+.banner .slider {
+    position: absolute;
+    width: 140px;
+    height: 180px;
+    top: 20%;
+    left: calc(50% - 70px);
+    transform-style: preserve-3d;
+    transform: perspective(500px);
+    --quantity: 10;
+    animation: autoRun 15s linear infinite;
+}
+
+/* Animation */
+@keyframes autoRun {
+    from {
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    }
+    to {
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }
+}
+
+/* Items */
+.banner .slider .items {
+    position: absolute;
+    inset: 0;
+    transform:
+        rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(350px);
+    transform-origin: center;
+}
+
+/* Images */
+.banner .slider .items img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ✅ Hide on Tablet + Mobile (ONLY show on PC) */
+@media (max-width: 1300px) {
+    .banner,
+    .banner .slider,
+    .banner .slider .items {
+        display: none !important;
+        visibility: hidden;
+        position: absolute;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden;
+    }
+}
