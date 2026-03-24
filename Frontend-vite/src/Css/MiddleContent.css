@@ -1,8 +1,9 @@
-.middlecontent{
-    min-height: 80vh;
+.middlecontent {
+    min-height: 100%;
 }
-.homecinema{
-    min-height: 80vh;
+
+.homecinema {
+    min-height: 100%;
 }
 .btn{
     color: white;

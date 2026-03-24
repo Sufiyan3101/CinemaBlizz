@@ -8,7 +8,6 @@ const MovieCard = ({ movie }) => {
 
   const watchlist = isInWatchlist(movie.title);
 
-  // ✅ Watchlist click
   const handleWatchlistClick = (e) => {
     e.stopPropagation();
     if (!watchlist) {
@@ -21,12 +20,12 @@ const MovieCard = ({ movie }) => {
       className="movie-card relative w-96 h-96 mx-auto text-center rounded-2xl bg-slate-400 shadow-md cursor-pointer"
       onClick={() => window.open(movie.videoUrl, "_blank")}
     >
-      <div className="card relative group h-full">
+      <div className="relative group h-full">
         {/* Thumbnail */}
         <img
           src={movie.thumbnail}
           alt={movie.title}
-          className="w-full h-96 object-fill rounded-2xl transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-96 object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110"
         />
 
         {/* Watchlist Icon */}
