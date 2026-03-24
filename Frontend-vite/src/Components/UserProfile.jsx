@@ -3,8 +3,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate, Link } from "react-router-dom";
 import "../Css/UserProfile.css";
 import { loadStripe } from "@stripe/stripe-js";
-import dotenv from 'dotenv'
-dotenv.config();
 
 const UserProfile = () => {
   const { user } = useAuth0();
@@ -22,7 +20,7 @@ const UserProfile = () => {
   }, []);
 
 // ✅ Outside the component — loads once, not on every render
-const stripePromise = loadStripe(process.env.STRIPE_SECRET_KEY_FRONTEND);
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 const handleClick = async () => {
   try {
