@@ -1,16 +1,185 @@
-# React + Vite
+# 🎬 CinemaBlizz
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An online entertainment platform where users can watch movies, web series, and unlock premium cartoon content through subscription.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+* 🎥 Watch Movies & Web Series
+* 🧸 Premium Cartoons (Unlocked via subscription)
+* 💳 Stripe (Test Mode) Subscription Integration
+* 🔐 Authentication using Auth0
+* 🛠 Admin Dashboard
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+  * ➕ Add movies/content
+  * ❌ Delete movies/content
+* 🌐 Fully responsive frontend
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Tech Stack
+
+### Frontend
+
+* React (Vite)
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Database
+
+* MongoDB
+
+### Authentication
+
+* Auth0
+
+### Payments
+
+* Stripe (Test Mode)
+
+### Deployment
+
+* Backend: Render
+* Frontend: Render
+
+---
+
+## 📂 Project Structure
+
+```
+CinemaBlizz/
+│
+├── Backend/
+│   ├── Server.js
+│   ├── dbconnection.js
+│   ├── Schemas.js
+│   ├── Payment.js
+│   └── routes/
+│
+├── Frontend-vite/
+│   ├── src/
+│   └── public/
+│
+└── README.md
+```
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file inside the `Backend/` folder:
+
+```
+MONGODB_URL=your_mongodb_connection_string
+STRIPE_SECRET_KEY=your_stripe_secret_key
+PORT=8000
+```
+
+For frontend (`Frontend-vite`):
+
+```
+VITE_API_URL=your_backend_url
+```
+
+---
+
+## 🧑‍💻 Installation & Setup
+
+### 1. Clone the repository
+
+```
+git clone https://github.com/your-username/CinemaBlizz.git
+cd CinemaBlizz
+```
+
+---
+
+### 2. Setup Backend
+
+```
+cd Backend
+npm install
+npm start
+```
+
+---
+
+### 3. Setup Frontend
+
+```
+cd Frontend-vite
+npm install
+npm run dev
+```
+
+---
+
+## 🌐 Deployment
+
+* Backend deployed on Render
+* Frontend deployed on Render
+
+---
+
+## 💳 Stripe Test Mode
+
+This project uses Stripe in test mode.
+Use test card details from Stripe documentation:
+
+```
+Card Number: 4242 4242 4242 4242
+Expiry: Any future date
+CVC: Any 3 digits
+```
+
+---
+
+## 🔐 Authentication
+
+User authentication is handled using Auth0:
+
+* Secure login/signup
+* Token-based authentication
+
+---
+
+## 🛠 Admin Functionality
+
+Admin users can:
+
+* Add new movies/web series
+* Delete existing content
+* Manage platform content dynamically
+
+---
+
+## 📌 Future Improvements
+
+* 🎯 Recommendation system
+* 📱 Mobile optimization improvements
+* 🎬 Video streaming optimization (CDN)
+* 💬 User reviews & ratings
+* 📊 Admin analytics dashboard
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+Feel free to fork the repo and submit a pull request.
+
+---
+
+## 📄 License
+
+This project is for educational purposes.
+
+---
+
+## 👨‍💻 Author
+
+Developed by Sufiyan 🚀
