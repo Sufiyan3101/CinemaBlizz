@@ -45,7 +45,7 @@ return (
       {series.seasons.map((season) => (
         <div key={season._id} className="season p-4 w-full">
           <div
-            className="season-card cursor-pointer ml-14 sm:ml-5 hover:font-bold"
+            className="season-card cursor-pointer md:ml-10 ml-3 hover:font-bold"
             onClick={() => toggleSeason(season._id)}
           >
             <span></span>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter, useLocation } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, useLocation, matchPath } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import Home from './Home';
@@ -23,10 +23,12 @@ import CancelPage from './CancelPage';
 function App() {
   const location = useLocation();
   const hideNavAndFooterRoutes = ['/bollywood', '/hollywood', '/web-series', '/cartoons', '/web-series/:title', '/user-uploads','/watchlist'];
-  const shouldHideNavAndFooter = hideNavAndFooterRoutes.includes(location.pathname);
+  const shouldHideNavAndFooter = hideNavAndFooterRoutes.some(route =>
+    matchPath(route, location.pathname)
+  );
 
   return (
-    <div className="flex flex-col min-h-screen bg-amber-100 grow">
+    <div className="flex flex-col min-h-screen bg-[#000B1F] grow">
       {!shouldHideNavAndFooter && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />

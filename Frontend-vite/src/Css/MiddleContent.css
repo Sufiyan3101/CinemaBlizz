@@ -1,5 +1,9 @@
+/* In MiddleContent.css */
 .middlecontent {
-    min-height: 100%;
+    display: flex;
+  overflow: hidden;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 .homecinema {
