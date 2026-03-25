@@ -35,7 +35,7 @@ const WebSeriesDetail = () => {
   };
 
   if (!series){
-    return <LoadingPage className="w-full h-full justify-center items-center" />;
+    return <LoadingPage className="w-full h-full flex justify-center items-center" />;
   } 
 
 return (
@@ -45,7 +45,7 @@ return (
       {series.seasons.map((season) => (
         <div key={season._id} className="season p-4 w-full">
           <div
-            className="season-card cursor-pointer ml-14 hover:font-bold"
+            className="season-card cursor-pointer ml-14 sm:ml-5 hover:font-bold"
             onClick={() => toggleSeason(season._id)}
           >
             <span></span>
@@ -55,7 +55,7 @@ return (
             {`Season ${season.seasonNumber}`}
           </div>
           {activeSeason === season._id && (
-           <div className="episodes mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-5 p-5">
+           <div className="episodes mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 p-5">
               {season.episodes.map((episode) => (
                 <EpisodeCard key={episode.id} episode={episode} />
               ))}

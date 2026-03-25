@@ -26,7 +26,7 @@ function App() {
   const shouldHideNavAndFooter = hideNavAndFooterRoutes.includes(location.pathname);
 
   return (
-    <div className="flex flex-col min-h-100vh bg-amber-100 grow">
+    <div className="flex flex-col min-h-screen bg-amber-100 grow">
       {!shouldHideNavAndFooter && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
