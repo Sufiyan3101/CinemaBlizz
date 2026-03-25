@@ -1,9 +1,10 @@
 /* In MiddleContent.css */
 .middlecontent {
-    display: flex;
   overflow: hidden;
   justify-content: center !important;
   align-items: center !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .homecinema {
