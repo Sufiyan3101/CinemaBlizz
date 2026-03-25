@@ -4,7 +4,7 @@ import { XCircle } from 'lucide-react'; // You can use any icon library
 
 const CancelPage = () => {
   return (
-    <div className="min-h-screen bg-[#000B1F] flex flex-col justify-center items-center px-4">
+    <div className="h-[80vh] bg-[#000B1F] flex flex-col justify-center items-center px-4">
       <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md text-center">
         <XCircle className="text-red-500 w-16 h-16 mx-auto mb-4 animate-pulse" />
         <h1 className="text-2xl font-bold text-red-600 mb-2">Payment Cancelled</h1>
