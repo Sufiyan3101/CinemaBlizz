@@ -44,7 +44,7 @@ const WebSeriesList = () => {
       <input
         type="text"
         placeholder="Search by title..."
-        className="w-2/4 sm:w-3/4 md:w-2/4 h-11 bg-[#000B1F] border border-white rounded-2xl mt-5 mb-5 text-white px-5 text-md"
+        className="w-full sm:w-3/4 md:w-2/4 h-11 bg-[#000B1F] border border-white rounded-2xl mt-5 mb-5 text-white px-5 text-md focus:outline-none"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
