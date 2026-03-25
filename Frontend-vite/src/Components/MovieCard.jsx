@@ -29,7 +29,7 @@ const MovieCard = ({ movie }) => {
         />
 
         {/* Watchlist Icon */}
-        <div className="absolute top-4 right-4 z-50">
+        <div className="absolute top-4 right-4 z-10">
           {watchlist ? (
             <FaBookmark
               className="w-6 h-6 text-white cursor-pointer hover:text-blue-500 transition"
@@ -49,7 +49,7 @@ const MovieCard = ({ movie }) => {
             absolute inset-0 flex items-end
             bg-linear-to-t from-black via-transparent to-transparent
             rounded-2xl p-6
-            
+            z-40
             opacity-100 sm:opacity-0 sm:group-hover:opacity-100
             transition-opacity duration-500
           "
