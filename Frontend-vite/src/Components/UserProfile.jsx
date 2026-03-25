@@ -29,8 +29,6 @@ const handleClick = async () => {
     });
 
     const data = await res.json();
-
-    // ✅ Just redirect — no Stripe.js needed at all
     window.location.href = data.url;
 
   } catch (err) {
