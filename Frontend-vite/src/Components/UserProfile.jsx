@@ -4,14 +4,16 @@ import { useNavigate, Link } from "react-router-dom";
 import "../Css/UserProfile.css";
 import { loadStripe } from "@stripe/stripe-js";
 
+// ✅ Outside component — loads once
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+
 const UserProfile = () => {
-  const { user } = useAuth0();
+  const { user, isLoading } = useAuth0();
   const navigate = useNavigate();
   const adminEmails = ["khansufiyan4512@gmail.com"];
 
   const [paymentSuccess, setPaymentSuccess] = useState(false);
 
-  // Check localStorage for payment status
   useEffect(() => {
     const status = localStorage.getItem("paymentSuccess");
     if (status === "true") {
@@ -19,27 +21,30 @@ const UserProfile = () => {
     }
   }, []);
 
-// ✅ Outside the component — loads once, not on every render
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+  const handleClick = async () => {
+    try {
+      const res = await fetch("https://cinemablizzbackend.onrender.com/api/create-checkout-session", {
+        method: "POST",
+      });
+      const data = await res.json();
+      window.location.href = data.url;
+    } catch (err) {
+      console.error("Checkout failed:", err);
+    }
+  };
 
-const handleClick = async () => {
-  try {
-    const res = await fetch("https://cinemablizzbackend.onrender.com/api/create-checkout-session", {
-      method: "POST",
-    });
-
-    const data = await res.json();
-    window.location.href = data.url;
-
-  } catch (err) {
-    console.error("Checkout failed:", err);
-  }
-};
-  
-  // Go to Admin
   const handleAdminRedirect = () => {
     navigate("/admin");
   };
+
+  // ✅ Wait for auth to load before rendering
+  if (isLoading || !user) {
+    return (
+      <div className="flex justify-center items-center h-[80vh]">
+        <p className="text-white text-lg">Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="profile-container">
@@ -48,25 +53,17 @@ const handleClick = async () => {
         <h2 className="profile-title">Profile</h2>
       </div>
 
-      {user && (
-        <div className="profile-details">
-          <p>
-            <strong>Name: </strong> {user.name}
-          </p>
-          <p>
-            <strong>Email: </strong> {user.email}
-          </p>
-        </div>
-      )}
+      <div className="profile-details">
+        <p><strong>Name: </strong> {user.name}</p>
+        <p><strong>Email: </strong> {user.email}</p>
+      </div>
 
-      {/* Show Admin Dashboard button if user is admin */}
       {adminEmails.includes(user.email) && (
         <button className="admin-button transition duration-1000" onClick={handleAdminRedirect}>
           Go to Admin Dashboard
         </button>
       )}
 
-      {/* Show based on payment status */}
       {!paymentSuccess ? (
         <button
           onClick={handleClick}
