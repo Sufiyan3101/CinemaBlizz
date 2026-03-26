@@ -96,7 +96,7 @@ const Navbar = () => {
 
       {/* DROPDOWN MENU FOR SMALL SCREENS */}
       {isMenuOpen && (
-        <div className="absolute top-20 left-0 w-full bg-white shadow-lg p-4 flex flex-col z-10">
+        <div className="absolute top-20 left-0 w-11/12 flex ml-[5vw] border rounded-2xl bg-white shadow-lg p-4 gap-1 flex-col z-10">
           <Link
             to="/"
             className="py-2 w-full text-center hover:bg-gray-100"
