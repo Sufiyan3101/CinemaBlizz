@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate, Link } from "react-router-dom";
 import "../Css/UserProfile.css";
 import { loadStripe } from "@stripe/stripe-js";
+import LoadingPage from "./LoadingPage";
 
 // ✅ Outside component — loads once
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
@@ -41,7 +42,7 @@ const UserProfile = () => {
   if (isLoading || !user) {
     return (
       <div className="flex justify-center items-center h-[80vh]">
-        <p className="text-white text-lg">Loading...</p>
+        <p className="text-white text-lg"><LoadingPage /></p>
       </div>
     );
   }
