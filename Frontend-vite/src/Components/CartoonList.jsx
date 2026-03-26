@@ -13,6 +13,12 @@ const CartoonList = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const handleCardClick = (title) => {
+    if (isTouchDevice) {
+      navigate(`/web-series/${encodeURIComponent(title)}`);
+    }
+  };
+
   const filteredCartoons = cartoonsList.filter((cartoon) =>
     cartoon.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -34,6 +40,7 @@ const CartoonList = () => {
             <div
               key={cartoon._id}
               className="cartoon-card relative text-center rounded-2xl bg-slate-400 shadow-md overflow-hidden"
+              onClick={() => handleCardClick(cartoon.title)}
             >
               <div className="card relative group h-full">
                 {/* Cartoon Thumbnail */}
@@ -43,7 +50,11 @@ const CartoonList = () => {
                   className="w-full h-80 object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110"
                 />
 
-                <div className="overlay absolute inset-0 flex items-end bg-linear-to-t from-black via-transparent to-transparent rounded-2xl p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className={`overlay absolute inset-0 flex items-end bg-linear-to-t from-black via-transparent to-transparent rounded-2xl p-4 transition-opacity duration-500 ${
+                      isTouchDevice
+                        ? "opacity-100"
+                        : "opacity-0 group-hover:opacity-100"
+                    }`}>
                   <div className="text-content text-white w-full text-center">
                     <h3 className="text-lg font-bold mb-2">{cartoon.title || "No Title"}</h3>
                     <p className="text-sm font-semibold mb-4">
