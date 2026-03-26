@@ -96,7 +96,7 @@ const HollywoodMovieList = () => {
             );
           })
         ) : (
-          <div className="col-span-full flex justify-center mt-40">
+          <div className="col-span-full flex justify-center items-center min-h-[50vh]">
             <LoadingPage />
           </div>
         )}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaBookmark } from "react-icons/fa";
 import { IoBookmarkOutline } from "react-icons/io5";
 import LoadingPage from "./LoadingPage";
+import ReactDOM from "react-dom";
 import { useWatchlist } from "./WatchListContext";
 
 const MoviesList = () => {
@@ -98,7 +99,7 @@ const MoviesList = () => {
             );
           })
         ) : (
-          <div className="col-span-full flex justify-center mt-40">
+          <div className="col-span-full flex justify-center items-center min-h-[50vh]">
             <LoadingPage />
           </div>
         )}

@@ -76,9 +76,9 @@ const CartoonList = () => {
             </div>
           ))
         ) : (
-          <p className="text-white text-lg text-center col-span-full row-span-full mt-64">
-          <LoadingPage />
-        </p>
+          <div className="col-span-full flex justify-center items-center min-h-[50vh]">
+            <LoadingPage />
+          </div>
         )}
       </div>
     </div>

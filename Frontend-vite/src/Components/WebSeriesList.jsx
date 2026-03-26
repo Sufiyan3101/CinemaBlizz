@@ -51,7 +51,9 @@ const WebSeriesList = () => {
 
       {/* Loading */}
       {loading ? (
-        <LoadingPage />
+        <div className="col-span-full flex justify-center items-center min-h-[50vh]">
+            <LoadingPage />
+          </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4 w-full">
           {filteredSeries.length > 0 ? (
