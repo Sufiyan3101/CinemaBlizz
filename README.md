@@ -1,50 +1,55 @@
 # 🎬 CinemaBlizz
 
-An online entertainment platform where users can watch movies, web series, and unlock premium cartoon content through subscription.
+> **Your ultimate entertainment destination** — stream Bollywood, Hollywood, Web Series, and unlock premium Cartoon content.
+
+## ✨ What is CinemaBlizz?
+
+CinemaBlizz is a full-stack streaming platform where users can **browse and watch movies & web series for free**, and **unlock premium cartoon content** through a subscription. Built with a modern tech stack, featuring secure authentication, real payment integration, and a powerful admin dashboard.
 
 ---
 
-## 🚀 Features
+## 🚀 Core Features
 
-* 🎥 Watch Movies & Web Series
-* 🧸 Premium Cartoons (Unlocked via subscription)
-* 💳 Stripe (Test Mode) Subscription Integration
-* 🔐 Authentication using Auth0
-* 🛠 Admin Dashboard
+### 🎥 Free Content
+- Browse and watch **Bollywood** movies
+- Browse and watch **Hollywood** movies  
+- Stream **Web Series** with episode-level detail pages
 
-  * ➕ Add movies/content
-  * ❌ Delete movies/content
-* 🌐 Fully responsive frontend
+### 👑 Premium Content (Subscription Required)
+- Access to the full **Cartoons** library — unlocked after a one-time payment via **Stripe**
+
+### 🔐 Authentication
+- Secure **login & signup** powered by **Auth0**
+- Session persistence across devices and page refreshes
+- Token-based authentication with refresh token rotation
+
+### 💳 Subscription & Payments
+- One-time subscription payment via **Stripe** (Test Mode)
+- Seamless checkout flow with success/cancel redirect pages
+- Payment status persisted per user
+
+### 🔖 Watchlist
+- Add any movie or series to your **personal watchlist**
+- Bookmark icon on every card for quick access
+- Watchlist synced across your session
+
+### 🛠 Admin Dashboard
+- Add new movies, web series, or cartoon content
+- Delete existing content
+- Manage the full platform dynamically — no code changes needed
 
 ---
 
-## 🛠 Tech Stack
+## 🧰 Tech Stack
 
-### Frontend
-
-* React (Vite)
-
-### Backend
-
-* Node.js
-* Express.js
-
-### Database
-
-* MongoDB
-
-### Authentication
-
-* Auth0
-
-### Payments
-
-* Stripe (Test Mode)
-
-### Deployment
-
-* Backend: Render
-* Frontend: Render
+| Layer | Technology |
+|---|---|
+| Frontend | React (Vite) |
+| Backend | Node.js + Express.js |
+| Database | MongoDB |
+| Authentication | Auth0 |
+| Payments | Stripe (Test Mode) |
+| Deployment | Render (Frontend + Backend) |
 
 ---
 
@@ -54,15 +59,20 @@ An online entertainment platform where users can watch movies, web series, and u
 CinemaBlizz/
 │
 ├── Backend/
-│   ├── Server.js
-│   ├── dbconnection.js
-│   ├── Schemas.js
-│   ├── Payment.js
-│   └── routes/
+│   ├── Server.js           # Entry point
+│   ├── dbconnection.js     # MongoDB connection
+│   ├── Schemas.js          # Mongoose schemas
+│   ├── Payment.js          # Stripe payment routes
+│   └── routes/             # API routes
 │
 ├── Frontend-vite/
 │   ├── src/
+│   │   ├── Components/     # Reusable UI components
+│   │   ├── Pages/          # Route-level pages
+│   │   ├── Admin/          # Admin dashboard
+│   │   └── Css/            # Stylesheets
 │   └── public/
+│       └── _redirects      # Render SPA routing fix
 │
 └── README.md
 ```
@@ -71,115 +81,113 @@ CinemaBlizz/
 
 ## ⚙️ Environment Variables
 
-Create a `.env` file inside the `Backend/` folder:
+### Backend — `Backend/.env`
 
-```
+```env
 MONGODB_URL=your_mongodb_connection_string
-STRIPE_SECRET_KEY=your_stripe_secret_key
+STRIPE_SECRET_KEY=sk_test_xxxxxxxxxxxx
 PORT=8000
 ```
 
-For frontend (`Frontend-vite`):
+### Frontend — `Frontend-vite/.env`
 
-```
+```env
+VITE_AUTH0_DOMAIN=your_auth0_domain
+VITE_AUTH0_CLIENT_ID=your_auth0_client_id
+VITE_STRIPE_PUBLISHABLE_KEY=pk_test_xxxxxxxxxxxx
 VITE_API_URL=your_backend_url
 ```
 
 ---
 
-## 🧑‍💻 Installation & Setup
+## 🧑‍💻 Local Setup
 
-### 1. Clone the repository
+### 1. Clone the repo
 
-```
+```bash
 git clone https://github.com/your-username/CinemaBlizz.git
 cd CinemaBlizz
 ```
 
----
+### 2. Start the Backend
 
-### 2. Setup Backend
-
-```
+```bash
 cd Backend
 npm install
 npm start
 ```
 
----
+### 3. Start the Frontend
 
-### 3. Setup Frontend
-
-```
+```bash
 cd Frontend-vite
 npm install
 npm run dev
 ```
 
+App runs at `http://localhost:5173`
+
+---
+
+## 💳 Test the Payment Flow
+
+This project uses **Stripe Test Mode** — no real money is charged.
+
+Use these test card details on the Stripe checkout page:
+
+```
+Card Number : 4242 4242 4242 4242
+Expiry Date : Any future date  (e.g. 12/29)
+CVC         : Any 3 digits     (e.g. 123)
+```
+
+After a successful payment, the Cartoons section unlocks automatically.
+
 ---
 
 ## 🌐 Deployment
 
-* Backend deployed on Render
-* Frontend deployed on Render
+Both services are deployed on **Render**:
+
+| Service | Type | URL |
+|---|---|---|
+| Frontend | Static Site | `cinemablizzz.onrender.com` |
+| Backend | Web Service | `cinemablizzbackend.onrender.com` |
+
+> **Note:** The frontend uses a `_redirects` file (or Render rewrite rules) to support React Router on full-page refreshes.
 
 ---
 
-## 💳 Stripe Test Mode
+## 🔐 Auth0 Setup Notes
 
-This project uses Stripe in test mode.
-Use test card details from Stripe documentation:
-
-```
-Card Number: 4242 4242 4242 4242
-Expiry: Any future date
-CVC: Any 3 digits
-```
+- Refresh Token Rotation is **enabled** for persistent sessions across mobile and desktop
+- `cacheLocation` is set to `localStorage` to survive page refreshes
+- Allowed Callback/Logout URLs must include both `localhost` and the live Render URL
 
 ---
 
-## 🔐 Authentication
+## 🛠 Admin Access
 
-User authentication is handled using Auth0:
+Admin functionality is restricted to whitelisted email addresses. Admins can:
 
-* Secure login/signup
-* Token-based authentication
-
----
-
-## 🛠 Admin Functionality
-
-Admin users can:
-
-* Add new movies/web series
-* Delete existing content
-* Manage platform content dynamically
-
----
-
-## 📌 Future Improvements
-
-* 🎯 Recommendation system
-* 📱 Mobile optimization improvements
-* 🎬 Video streaming optimization (CDN)
-* 💬 User reviews & ratings
-* 📊 Admin analytics dashboard
+- ➕ Add new movies, web series, and cartoons to the platform
+- ❌ Delete any existing content from the site
+- 📋 Manage all platform content dynamically from a dedicated dashboard — no code changes needed
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome!
-Feel free to fork the repo and submit a pull request.
+Contributions are welcome! Fork the repo, create a feature branch, and open a pull request.
 
 ---
 
 ## 📄 License
 
-This project is for educational purposes.
+This project is built for educational purposes.
 
 ---
 
 ## 👨‍💻 Author
 
-Developed by Sufiyan 🚀
+Built with ❤️ by **Sufiyan**
