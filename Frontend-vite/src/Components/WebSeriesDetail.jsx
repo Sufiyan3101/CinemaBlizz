@@ -35,7 +35,7 @@ const WebSeriesDetail = () => {
   };
 
   if (!series){
-    return <LoadingPage className="w-full h-full flex justify-center items-center" />;
+    return <LoadingPage />;
   } 
 
 return (

@@ -22,7 +22,7 @@ import CancelPage from './CancelPage';
 
 function App() {
   const location = useLocation();
-  const hideNavAndFooterRoutes = ['/bollywood', '/hollywood', '/web-series', '/cartoons', '/web-series/:title', '/user-uploads','/watchlist'];
+  const hideNavAndFooterRoutes = ['/bollywood', '/hollywood', '/web-series', '/cartoons', '/web-series/:title', '/cartoons/:title','/user-uploads','/watchlist'];
   const shouldHideNavAndFooter = hideNavAndFooterRoutes.some(route =>
     matchPath(route, location.pathname)
   );

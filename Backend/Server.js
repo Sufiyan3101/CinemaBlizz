@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: 'https://cinemablizzz.onrender.com'
+  origin: ['https://cinemablizzz.onrender.com', 'http://localhost:5173/']
 }));
 app.use(express.json());
 
