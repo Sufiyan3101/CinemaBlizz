@@ -28,7 +28,7 @@ const WebSeriesList = () => {
   }, []);
 
   const filteredSeries = seriesList.filter((series) =>
-    series.title.toLowerCase().includes(searchTerm.toLowerCase())
+    series.title.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   // ✅ Handle full card click (mobile)
@@ -78,9 +78,7 @@ const WebSeriesList = () => {
                     }`}
                   >
                     <div className="text-content text-white w-full text-center">
-                      <h3 className="text-lg font-bold mb-2">
-                        {series.title}
-                      </h3>
+                      <h3 className="text-lg font-bold mb-2">{series.title}</h3>
                       <p className="text-sm font-semibold mb-4">
                         {series.description}
                       </p>

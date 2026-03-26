@@ -6,6 +6,10 @@ const CartoonList = () => {
   const [cartoonsList, setCartoonsList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  const isTouchDevice =
+    typeof window !== "undefined" &&
+    ("ontouchstart" in window || navigator.maxTouchPoints > 0);
+
   useEffect(() => {
     fetch("https://cinemablizzbackend.onrender.com/cartoons")
       .then((response) => response.json())
