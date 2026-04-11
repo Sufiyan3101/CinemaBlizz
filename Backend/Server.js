@@ -18,7 +18,9 @@ app.use(express.json());
 // connect DB
 dbconnection();
 
-
+app.get('/', async()=>{
+  return {"ststus" : "Server is running"}
+})
 
 // Fetch Bollywood Movies
 app.get('/bollywood/movies', async (req, res) => {
